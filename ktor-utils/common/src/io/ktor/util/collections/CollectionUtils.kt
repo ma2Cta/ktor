@@ -8,6 +8,7 @@ import io.ktor.util.*
 
 internal fun <T> sharedListOf(vararg values: T): MutableList<T> {
     if (PlatformUtils.IS_NATIVE) {
+        @Suppress("DEPRECATION")
         return ConcurrentList<T>().apply {
             addAll(values)
         }

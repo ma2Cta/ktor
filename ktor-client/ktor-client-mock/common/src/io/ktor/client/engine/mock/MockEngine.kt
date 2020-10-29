@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
+ * Copyright 2014-2020 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
 package io.ktor.client.engine.mock
@@ -21,7 +21,9 @@ public class MockEngine(override val config: MockEngineConfig) : HttpClientEngin
     private val mutex = Lock()
     private val contextState: CompletableJob = Job()
 
+    @Suppress("DEPRECATION")
     private val _requestsHistory: MutableList<HttpRequestData> = ConcurrentList()
+    @Suppress("DEPRECATION")
     private val _responseHistory: MutableList<HttpResponseData> = ConcurrentList()
 
     private var invocationCount: Int by shared(0)

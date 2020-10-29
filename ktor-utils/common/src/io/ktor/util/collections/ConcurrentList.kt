@@ -12,7 +12,7 @@ import kotlinx.atomicfu.locks.*
 
 private const val INITIAL_CAPACITY = 32
 
-@KtorExperimentalAPI
+@Deprecated("This is going to become internal.")
 public class ConcurrentList<T> : MutableList<T> {
     private var data by shared(SharedList<T>(INITIAL_CAPACITY))
 

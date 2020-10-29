@@ -17,6 +17,7 @@ internal fun <K : Any, V : Any> sharedMap(): MutableMap<K, V> {
 
 internal fun <V> sharedList(): MutableList<V> {
     if (PlatformUtils.IS_NATIVE) {
+        @Suppress("DEPRECATION")
         return ConcurrentList()
     }
 

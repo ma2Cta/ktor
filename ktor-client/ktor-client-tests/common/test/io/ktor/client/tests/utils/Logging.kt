@@ -9,6 +9,7 @@ import io.ktor.util.collections.*
 import kotlin.test.*
 
 internal class TestLogger(private vararg val expectedLog: String) : Logger {
+    @Suppress("DEPRECATION")
     private val log = ConcurrentList<String>()
 
     override fun log(message: String) {

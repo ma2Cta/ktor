@@ -6,6 +6,7 @@ package io.ktor.util.collections
 
 import kotlin.test.*
 
+@Suppress("DEPRECATION")
 class ConcurrentListTest {
 
     @Test
