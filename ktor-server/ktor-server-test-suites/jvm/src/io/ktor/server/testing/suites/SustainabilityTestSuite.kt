@@ -536,7 +536,7 @@ abstract class SustainabilityTestSuite<TEngine : ApplicationEngine, TConfigurati
     }
 
     @Test
-    fun testInvalidTransferEncoding() {
+    fun testChunkedIsNotFinal() {
         createAndStartServer {
             get("/") {
                 call.respondText("Hello, world!", ContentType.Text.Html)
@@ -553,8 +553,7 @@ abstract class SustainabilityTestSuite<TEngine : ApplicationEngine, TConfigurati
             "Connection: close\r\n",
             "Content-Length: 1\r\n",
             "Content-Type: application/x-www-form-urlencoded\r\n",
-            "Transfer-Encoding: chunked\r\n",
-            "Transfer-Encoding: smuggle\r\n",
+            "Transfer-Encoding: chunked, smuggle\r\n",
             "\r\n",
             "3\r\n",
             "a=1\r\n",
